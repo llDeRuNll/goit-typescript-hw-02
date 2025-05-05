@@ -1,5 +1,6 @@
-import Modal from "react-modal";
 import styles from "./ImageModal.module.css";
+import { ImageType } from "../../types";
+import Modal from "react-modal";
 
 Modal.setAppElement("#root");
 
@@ -21,7 +22,21 @@ const customStyles = {
   },
 };
 
-const ModalImage = ({ image, modalIsOpen, closeModal }) => {
+interface ModalImageProps {
+  image: ImageType | null;
+  modalIsOpen: boolean;
+  closeModal: () => void;
+}
+
+const ModalImage: React.FC<ModalImageProps> = ({
+  image,
+  modalIsOpen,
+  closeModal,
+}) => {
+  if (!image) {
+    return null;
+  }
+
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -30,21 +45,25 @@ const ModalImage = ({ image, modalIsOpen, closeModal }) => {
       contentLabel="Picture modal"
     >
       <div className={styles.modalContent}>
-        <img src={image?.src} alt={image?.alt} className={styles.image} />
+        <img
+          src={image.urls.regular}
+          alt={image.alt_description || "Image"}
+          className={styles.image}
+        />
         <div className={styles.info}>
-          {image?.description && (
+          {image.description && (
             <p>
               <strong>Description:</strong> {image.description}
             </p>
           )}
           <p>
             <strong>Author:</strong>{" "}
-            <a href={image?.userLink} target="_blank" rel="noopener noreferrer">
-              {image?.userName}
+            <a href={image.userLink} target="_blank" rel="noopener noreferrer">
+              {image.userName}
             </a>
           </p>
           <p>
-            <strong>Likes:</strong> {image?.likes}
+            <strong>Likes:</strong> {image.likes}
           </p>
         </div>
       </div>

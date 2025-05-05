@@ -1,9 +1,10 @@
 import { HashLoader } from "react-spinners";
 import s from "./Loader.module.css";
-const Loader = () => {
+
+const Loader: React.FC = () => {
   return (
     <div className={s.loader}>
-      <HashLoader color="#black" size="100px" />
+      <HashLoader color="black" size={100} />
     </div>
   );
 };

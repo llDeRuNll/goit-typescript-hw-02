@@ -1,14 +1,20 @@
 import { useEffect, useRef } from "react";
 import ImageGalleryCard from "../ImageGalleryCard/ImageGalleryCard";
 import s from "./ImageGallery.module.css";
+import { ImageType } from "../../App";
 
-const ImageGallery = ({ images, openModal }) => {
-  const galleryRef = useRef(null);
+interface ImageGalleryProps {
+  images: ImageType[];
+  openModal: (img: ImageType) => void;
+}
+
+const ImageGallery: React.FC<ImageGalleryProps> = ({ images, openModal }) => {
+  const galleryRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
     if (!galleryRef.current) return;
 
-    const lastItem = galleryRef.current.lastElementChild;
+    const lastItem = galleryRef.current.lastElementChild as HTMLElement | null;
     if (!lastItem || images.length <= 9) return;
 
     const scrollToLast = () => {
