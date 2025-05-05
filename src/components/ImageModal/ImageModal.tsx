@@ -1,5 +1,6 @@
-import styles from "./ImageModal.module.css";
 import { ImageType } from "../../types";
+import styles from "./ImageModal.module.css";
+
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");

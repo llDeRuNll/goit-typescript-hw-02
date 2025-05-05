@@ -32,7 +32,7 @@ export interface ImageGalleryProps {
 
 export interface ImageGalleryCardProps {
   imageData: ImageType;
-  openModal: (img: ImageType | null) => void;
+  openModal: (img: ImageType) => void;
 }
 
 export interface ErrorMessageProps {

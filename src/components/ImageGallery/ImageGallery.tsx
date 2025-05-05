@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import ImageGalleryCard from "../ImageGalleryCard/ImageGalleryCard";
 import s from "./ImageGallery.module.css";
-import { ImageType } from "../../App";
+import { ImageType } from "../../types";
 
 interface ImageGalleryProps {
   images: ImageType[];
