@@ -1,0 +1,48 @@
+.modalContent {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #333;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.info {
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.info p {
+  margin: 0.5rem 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  background-color: #eaeaea;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.closeButton {
+  margin-top: 1rem;
+  padding: 8px 16px;
+  background-color: #007aff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
